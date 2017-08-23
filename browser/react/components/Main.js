@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
 import {HashRouter, Route} from 'react-router-dom';
-
 import AllAlbums from './AllAlbums';
 import SingleAlbum from './SingleAlbum';
 import Sidebar from './Sidebar';
 import Player from './Player';
 import AllArtists from './AllArtists';
 import SingleArtist from './SingleArtist';
+import StatefulAlbums from './StatefulAlbums'
+import NotFound from './NotFound'
 
 export default class Main extends Component {
 
   constructor (props) {
     super(props);
     
-   
   }
-
-
-
 
 
   render () {
@@ -33,13 +30,13 @@ export default class Main extends Component {
             <Route
               exact
               path='/'
-              component = {AllAlbums}
+              component = {StatefulAlbums}
             />
 
             <Route 
               exact
               path='/albums'
-              component={AllAlbums}
+              component={StatefulAlbums}
             />
 
             <Route
@@ -53,19 +50,12 @@ export default class Main extends Component {
             />
 
             <Route 
-              exact
               path='/artists/:artistId'
               component={SingleArtist}
             />
-            <Route 
-              exact
-              path='/artists/:artistId/albums'
-              component={SingleArtist}
-            />
-            <Route 
-              exact
-              path='/artists/:artistId/songs'
-              component={SingleArtist}
+
+            <Route
+              component={NotFound}
             />
 
           </div>

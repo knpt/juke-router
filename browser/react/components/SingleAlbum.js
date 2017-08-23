@@ -12,6 +12,7 @@ export default class SingleAlbum extends Component {
   }
 
   componentDidMount () {
+    
     const albumId = this.props.match.params.albumId
 
     axios.get(`/api/albums/${albumId}`)
@@ -28,7 +29,11 @@ export default class SingleAlbum extends Component {
     return (
       <div className="album">
         <div>
-          <h3>{ album.name }</h3>
+          <h3>{ album.name } 
+          <button className="btn btn-default btn-xs">
+          <span className="glyphicon glyphicon-tree-conifer"></span>
+          </button>
+          </h3> 
           <img src={ album.imageUrl } className="img-thumbnail" />
         </div>
         <Songs songs={album.songs} />
